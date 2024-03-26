@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Box, VStack, HStack, Text, Input, Button, Table, Thead, Tbody, Tr, Th, Td, TableContainer, FormControl, FormLabel } from "@chakra-ui/react";
+import { Box, VStack, HStack, Text, Input, Button, Table, Thead, Tbody, Tr, Th, Td, TableContainer, FormControl, FormLabel, Card } from "@chakra-ui/react";
 
 const Index = () => {
   const [individuals, setIndividuals] = useState([]);
@@ -52,34 +52,36 @@ const Index = () => {
       <Text fontSize="2xl" fontWeight="bold" mb={4}>
         Vesting Dashboard
       </Text>
-      <VStack spacing={4} align="stretch">
-        <FormControl id="name">
-          <FormLabel>Name</FormLabel>
-          <Input type="text" value={name} onChange={(e) => setName(e.target.value)} placeholder="Enter name" />
-        </FormControl>
-        <FormControl id="allocation">
-          <FormLabel>Allocation</FormLabel>
-          <Input type="number" value={allocation} onChange={(e) => setAllocation(e.target.value)} placeholder="Enter allocation" />
-        </FormControl>
-        <FormControl id="startDate">
-          <FormLabel>Start Date</FormLabel>
-          <Input type="date" value={startDate} onChange={(e) => setStartDate(e.target.value)} />
-        </FormControl>
-        <FormControl id="duration">
-          <FormLabel>Duration (months)</FormLabel>
-          <Input type="number" value={duration} onChange={(e) => setDuration(e.target.value)} placeholder="Enter duration" />
-        </FormControl>
-        <FormControl id="cliff">
-          <FormLabel>Cliff (months)</FormLabel>
-          <Input type="number" value={cliff} onChange={(e) => setCliff(e.target.value)} placeholder="Enter cliff" />
-        </FormControl>
-        <Button colorScheme="blue" onClick={handleAddIndividual}>
-          Add Individual
-        </Button>
-      </VStack>
-      <Box mt={8}>
+      <Card p={4}>
+        <VStack spacing={4} align="stretch">
+          <FormControl id="name">
+            <FormLabel>Name</FormLabel>
+            <Input type="text" value={name} onChange={(e) => setName(e.target.value)} placeholder="Enter name" />
+          </FormControl>
+          <FormControl id="allocation">
+            <FormLabel>Allocation</FormLabel>
+            <Input type="number" value={allocation} onChange={(e) => setAllocation(e.target.value)} placeholder="Enter allocation" />
+          </FormControl>
+          <FormControl id="startDate">
+            <FormLabel>Start Date</FormLabel>
+            <Input type="date" value={startDate} onChange={(e) => setStartDate(e.target.value)} />
+          </FormControl>
+          <FormControl id="duration">
+            <FormLabel>Duration (months)</FormLabel>
+            <Input type="number" value={duration} onChange={(e) => setDuration(e.target.value)} placeholder="Enter duration" />
+          </FormControl>
+          <FormControl id="cliff">
+            <FormLabel>Cliff (months)</FormLabel>
+            <Input type="number" value={cliff} onChange={(e) => setCliff(e.target.value)} placeholder="Enter cliff" />
+          </FormControl>
+          <Button colorScheme="blue" onClick={handleAddIndividual}>
+            Add Individual
+          </Button>
+        </VStack>
+      </Card>
+      <Card mt={8} p={4}>
         <TableContainer>
-          <Table variant="simple">
+          <Table variant="simple" size="sm">
             <Thead>
               <Tr>
                 <Th>Name</Th>
@@ -98,7 +100,13 @@ const Index = () => {
             </Tbody>
           </Table>
         </TableContainer>
-      </Box>
+      </Card>
+      <Card mt={8} p={4}>
+        <Text fontSize="xl" fontWeight="bold" mb={4}>
+          Vesting Chart (Placeholder)
+        </Text>
+        {}
+      </Card>
     </Box>
   );
 };
